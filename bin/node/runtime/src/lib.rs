@@ -81,6 +81,7 @@ pub use pallet_staking::StakerStatus;
 /// Implementations of some helper traits passed into runtime modules as associated types.
 pub mod impls;
 use impls::Author;
+mod weights;
 
 /// Constant values used within the runtime.
 pub mod constants;
@@ -897,7 +898,7 @@ parameter_types! {
 
 impl pallet_assets::Trait for Runtime {
 	type Event = Event;
-	type Balance = u64;
+	type Balance = Balance;
 	type AssetId = u32;
 	type Currency = Balances;
 	type ForceOrigin = EnsureRoot<AccountId>;
